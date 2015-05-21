@@ -7,9 +7,32 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
 
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (id ^ (id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Employee))
+			return false;
+		Employee other = (Employee) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -17,14 +40,17 @@ public class Employee {
 	@Column(name="last_name")
 	private String lastName;
 	
+	@Column(name="email")
 	private String email;
+	
+	@Column(name="phone")
 	private String phone;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

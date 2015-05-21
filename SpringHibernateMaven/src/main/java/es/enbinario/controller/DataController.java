@@ -36,13 +36,13 @@ public class DataController {
 	}
 	
 	@RequestMapping("delete")
-	public ModelAndView deleteUser(@RequestParam int id) {
+	public ModelAndView deleteUser(@RequestParam long id) {
 		dataService.deleteRow(id);
 		return new ModelAndView("redirect:list");
 	}
 	
 	@RequestMapping("edit")
-	public ModelAndView editUser(@RequestParam int id,@ModelAttribute Employee employee) {
+	public ModelAndView editUser(@RequestParam long id,@ModelAttribute Employee employee) {
 		Employee employeeObject = dataService.getRowById(id);
 		return new ModelAndView("edit","employeeObject",employeeObject);
 	}

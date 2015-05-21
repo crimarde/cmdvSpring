@@ -5,14 +5,14 @@ import java.util.List;
 import es.enbinario.model.Employee;
 
 public interface DataService {
-	public int insertRow(Employee employee);
+	public long insertRow(Employee employee);
 
 	public List<Employee> getList();
 
-	public Employee getRowById(int id);
+	public Employee getRowById(long id);
 
-	public int updateRow(Employee employee);
+	public void updateRow(Employee employee);
 
-	public int deleteRow(int id);
+	public long deleteRow(long id);
 
 }
