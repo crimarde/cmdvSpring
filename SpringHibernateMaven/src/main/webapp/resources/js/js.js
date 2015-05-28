@@ -33,12 +33,10 @@ $(document).ready(function(){
 		//event.preventDefault();
 		$.get('./check',{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, function (data){
 			if(data){
-				alert("Es un true");
-				// Hace el submit
-				return true;
-			}else{
 				alert("No se puede registar, ya existe");
 				return false;
+			}else{
+				return true;
 			}
 		});
 	});

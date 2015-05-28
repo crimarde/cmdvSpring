@@ -7,6 +7,29 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
 
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Employee(String firstName, String lastName, String email,
+			String phone) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+	}
+
+	public Employee(long id, String firstName, String lastName, String email,
+			String phone) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

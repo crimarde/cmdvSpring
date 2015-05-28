@@ -101,9 +101,9 @@ public class DataController {
 	@RequestMapping("check")
 	public @ResponseBody boolean checkDuplicateInsert(@RequestParam String firstName ,@RequestParam String lastName, @RequestParam String email, @RequestParam String phone){
 //	public @ResponseBody boolean checkDuplicateInsert(@ModelAttribute Employee employee){
-		
+		return dataService.checkDuplicateInsert(new Employee(firstName, lastName, email, phone));
 		//return dataService.checkDuplicateInsert(employe);
-		return true;
+		//return true;
 	}
 
 }
