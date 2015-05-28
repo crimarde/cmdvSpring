@@ -25,9 +25,6 @@ function formReset(event) {
 }
 
 $(document).ready(function(){
-	$("p").click(function(){
-        $(this).hide();
-    });
 	
 	$('#registerForm').on('submit',function(event){
 		//event.preventDefault();
