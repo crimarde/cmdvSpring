@@ -26,17 +26,17 @@
 <!-- 		<property name="configLocation" value="classpath:hibernate.cfg.xml" /> -->
  		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">${hibernate.enable_lazy_load_no_trans}</prop>
 				
 				<!-- Pool de conexiones que mejora al que viene con hibernate por defecto -->
-				<prop key="hibernate.c3p0.min_size">5</prop> 			<!-- Minimum number of JDBC connections in the pool -->
-				<prop key="hibernate.c3p0.max_size">20</prop>			<!-- Maximum number of JDBC connections in the pool -->
-				<prop key="hibernate.c3p0.timeout">300</prop>			<!-- When an idle connection is removed from the pool (in second -->
-				<prop key="hibernate.c3p0.max_statements">50</prop>		<!-- Number of prepared statements will be cached -->
-				<prop key="hibernate.c3p0.idle_test_period">3000</prop>	<!-- idle time in seconds before a connection is automatically validated -->
+				<prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop> 					<!-- Minimum number of JDBC connections in the pool -->
+				<prop key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop>					<!-- Maximum number of JDBC connections in the pool -->
+				<prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>						<!-- When an idle connection is removed from the pool (in second -->
+				<prop key="hibernate.c3p0.max_statements">${hibernate.c3p0.max_statements}</prop>		<!-- Number of prepared statements will be cached -->
+				<prop key="hibernate.c3p0.idle_test_period">${hibernate.c3p0.idle_test_period}</prop>	<!-- idle time in seconds before a connection is automatically validated -->
 			</props>
 		</property>
 		<property name="packagesToScan" value="es.enbinario.model" />

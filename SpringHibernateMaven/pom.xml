@@ -15,8 +15,11 @@
 		
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
-		<log4j.version>1.2.17</log4j.version>
 		<jdk.version>1.7</jdk.version>
+		<log4j.version>1.2.17</log4j.version>
+		<c3po.version>3.6.3.Final</c3po.version>
+		
+		<jackson.databind-version>2.5.3</jackson.databind-version>
 		<mysql.version>5.1.32</mysql.version>
 		<context.path>SpringHibernateMaven</context.path>
 	</properties>
@@ -99,6 +102,21 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
+		<!-- Permite que responseBody devuelva un booleano y no mecesariamente un json -->
+		<!-- Jackson JSON Mapper funciona bien con spring 3 -->
+<!-- 	    <dependency> -->
+<!-- 	        <groupId>org.codehaus.jackson</groupId> -->
+<!-- 	        <artifactId>jackson-mapper-asl</artifactId> -->
+<!-- 	        <version>1.9.13</version> -->
+<!-- 	    </dependency> -->
+		<!-- Esta libnreria funciona bien con spring 4. Es la misma libreria que se ha actualizado http://wiki.fasterxml.com/JacksonHome -->
+		<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind-version}</version>
+        </dependency>
+
 
 		<!-- Hibernate -->
 		<dependency>
@@ -116,7 +134,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
-			<version>3.6.3.Final</version>
+			<version>${c3po.version}</version>
 		</dependency>
 	    
 	    <!-- enable Hibernate to use its proxy model -->

@@ -7,7 +7,6 @@ import javax.persistence.Id;
 @Entity
 public class Employee {
 
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;

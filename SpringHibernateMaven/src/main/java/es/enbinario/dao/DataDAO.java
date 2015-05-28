@@ -15,5 +15,7 @@ public interface DataDAO {
 	public void updateRow(Employee employee);
 
 	public long deleteRow(long id);
+	
+	public Employee checkDuplicateInsert(Employee emp);
 
 }

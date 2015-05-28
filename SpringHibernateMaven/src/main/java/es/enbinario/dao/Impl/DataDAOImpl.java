@@ -2,6 +2,8 @@ package es.enbinario.dao.Impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import es.enbinario.dao.DataDAO;
@@ -48,6 +50,17 @@ public class DataDAOImpl extends BaseDAOImpl<Employee, Long> implements DataDAO 
 	public long deleteRow(long id) {
 		delete(getRowById(id));
 		return (Long) id;
+	}
+	
+	public Employee checkDuplicateInsert(Employee emp){
+		Employee employee = null;
+		Criteria criteria = getSession().createCriteria(getMyClass());
+		criteria.add(Restrictions.eq("firstName", emp.getFirstName()))
+			.add(Restrictions.eq("lastName", emp.getFirstName()))
+			.add(Restrictions.eq("email", emp.getFirstName()))
+			.add(Restrictions.eq("phone", emp.getFirstName()));
+		employee = (Employee) criteria.uniqueResult();
+		return employee;
 	}
 
 }

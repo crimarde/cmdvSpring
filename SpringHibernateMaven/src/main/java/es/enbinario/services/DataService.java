@@ -14,5 +14,7 @@ public interface DataService {
 	public void updateRow(Employee employee);
 
 	public long deleteRow(long id);
+	
+	public boolean checkDuplicateInsert(Employee emp);
 
 }

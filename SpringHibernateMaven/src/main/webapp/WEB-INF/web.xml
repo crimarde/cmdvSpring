@@ -9,6 +9,7 @@
     	<init-param>
       		<param-name>contextConfigLocation</param-name>
       		<param-value>
+      			/WEB-INF/resources.xml
       			/WEB-INF/spring-config.xml
       			/WEB-INF/datasource-cofig.xml
       			/WEB-INF/hibernate-config.xml

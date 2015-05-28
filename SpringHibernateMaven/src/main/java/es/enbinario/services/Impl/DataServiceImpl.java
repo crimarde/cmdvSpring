@@ -46,5 +46,11 @@ public class DataServiceImpl implements DataService {
 	public long deleteRow(long id) {
 		return dataDao.deleteRow(id);
 	}
+	
+	@Override
+	public boolean checkDuplicateInsert(Employee emp) {
+		// true si hay un duplicado
+		return (dataDao.checkDuplicateInsert(emp) != null) ? true : false ;
+	}
 
 }

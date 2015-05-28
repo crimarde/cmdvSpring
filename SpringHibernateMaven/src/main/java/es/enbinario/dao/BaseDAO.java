@@ -2,7 +2,7 @@ package es.enbinario.dao;
 
 import java.io.Serializable;
 /**
- * Implementa las opciones básicas y comunes a todas las entidades
+ * Implementa las opciones basicas y comunes a todas las entidades
  * @author 0010789
  *
  * @param <T>

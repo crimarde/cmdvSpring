@@ -51,7 +51,7 @@
 								<c:out value="${user.phone}" />
 							</td>
 							<td>
-								<input id="${user.id}"  type="button" value="Editar" onclick="redirige(${user.id});">
+								<input id="${user.id}"  type="button" value="Editar" onclick="redirige(${user.id},'${user.firstName}','${user.lastName}','${user.email}','${user.phone}');">
 							</td>
 							<td>
 								<input id="${user.id}"  type="button" value="Eliminar" onclick="eliminar(${user.id});">
@@ -68,12 +68,10 @@
 					</tr>
 				</tfoot>
 				
-				<caption>Tabla resumen de usuarios</caption>
-				
+				<caption>Tabla resumen de usuarios</caption>		
 			</table>
 		</c:if>
-
-
+		
 		<input id="${user.id}"  type="button" value="Añadir un nuevo usuario" onclick="add();">
 	</div>
 	
