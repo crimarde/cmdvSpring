@@ -8,7 +8,7 @@
 	<title>Listado</title>
 	
 	<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,10 +63,12 @@
 								<c:out value="${user.phone}" />
 							</td>
 							<td>
-								<input id="${user.id}"  type="button" value="Editar" onclick="redirige(${user.id},'${user.firstName}','${user.lastName}','${user.email}','${user.phone}');">
+								<input id="${user.id}" type="button" value="Editar" class="btn btn-primary btn-xs" 
+									onclick="redirige(${user.id},'${user.firstName}','${user.lastName}','${user.email}','${user.phone}');">
 							</td>
 							<td>
-								<input id="${user.id}"  type="button" value="Eliminar" onclick="eliminar(${user.id});">
+								<input id="${user.id}"  type="button" value="Eliminar" class="btn btn-danger btn-xs" 
+									onclick="eliminar(${user.id});">
 							</td>
 						</tr>
 					</c:forEach>

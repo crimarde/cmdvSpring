@@ -27,14 +27,18 @@ function formReset(event) {
 $(document).ready(function(){
 	
 	$('#registerForm').on('submit',function(event){
-		//event.preventDefault();
-		$.get('./check',{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, function (data){
-			if(data){
-				alert("No se puede registar, ya existe");
-				return false;
-			}else{
-				return true;
-			}
-		});
+		event.preventDefault();
+		$.get('./check',
+				{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, 
+				function (data){
+					if(data){
+						alert("No se puede registar, ya existe");
+						return false;
+					}else{
+						alert("Se puede registar");
+						$('#registerForm').off('submit').submit();
+						return true;
+					}
+				});
 	});
 });

@@ -31,7 +31,7 @@ public class DataController {
 
 	@RequestMapping("form")
 	public ModelAndView getForm(@ModelAttribute Employee employee) {
-		logger.info("Hemos entrado en el método DataController.getForm. -- Redireccion a la página form");
+		logger.info("Hemos entrado en el metodo DataController.getForm. -- Redireccion a la pagina form");
 		
 		/* Creamos un map, le introducimos una serie de valores
 		 * Creamos un ModelAndView le metemos el map que hemos creado (las variables estrán disponibles en la vista)
