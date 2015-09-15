@@ -10,20 +10,20 @@
 
 	<properties>
 		<!-- Generic properties -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<jdk.version>1.7</jdk.version>
 		<log4j.version>1.2.17</log4j.version>
 		<c3po.version>3.6.3.Final</c3po.version>
-		
+
 		<jackson.databind-version>2.5.3</jackson.databind-version>
 		<mysql.version>5.1.32</mysql.version>
 		<context.path>SpringHibernateMaven</context.path>
 	</properties>
-	
+
 	<developers>
 		<developer>
 			<id>Cristóbal Martínez del Vals</id>
@@ -35,7 +35,7 @@
 			</roles>
 		</developer>
 	</developers>
-	
+
 	<repositories>
 		<repository>
 			<id>JBoss repository</id>
@@ -57,9 +57,9 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencies>
-		
+
 		<!-- Log for java -->
 		<dependency>
 			<groupId>log4j</groupId>
@@ -68,23 +68,23 @@
 		</dependency>
 
 		<!-- Spring and Transactions -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        
-        <!-- Spring ORM support -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Spring ORM support -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<!-- Spring -->
 		<dependency>
@@ -96,26 +96,28 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
 			<version>${spring.version}</version>
-		</dependency>	
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		<!-- Permite que responseBody devuelva un booleano y no mecesariamente un json -->
+
+		<!-- Permite que responseBody devuelva un booleano y no mecesariamente 
+			un json -->
 		<!-- Jackson JSON Mapper funciona bien con spring 3 -->
-<!-- 	    <dependency> -->
-<!-- 	        <groupId>org.codehaus.jackson</groupId> -->
-<!-- 	        <artifactId>jackson-mapper-asl</artifactId> -->
-<!-- 	        <version>1.9.13</version> -->
-<!-- 	    </dependency> -->
-		<!-- Esta libnreria funciona bien con spring 4. Es la misma libreria que se ha actualizado http://wiki.fasterxml.com/JacksonHome -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.codehaus.jackson</groupId> -->
+		<!-- <artifactId>jackson-mapper-asl</artifactId> -->
+		<!-- <version>1.9.13</version> -->
+		<!-- </dependency> -->
+		<!-- Esta libnreria funciona bien con spring 4. Es la misma libreria que 
+			se ha actualizado http://wiki.fasterxml.com/JacksonHome -->
 		<dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.databind-version}</version>
-        </dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.databind-version}</version>
+		</dependency>
 
 
 		<!-- Hibernate -->
@@ -125,46 +127,65 @@
 			<version>${hibernate.version}</version>
 		</dependency>
 		<dependency>
-	        <groupId>org.hibernate</groupId>
-	        <artifactId>hibernate-core</artifactId>
-	        <version>${hibernate.version}</version>
-	    </dependency>
-	    
-	    <!-- Hibernate c3p0 connection pool -->
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<!-- Hibernate c3p0 connection pool -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>${c3po.version}</version>
 		</dependency>
-	    
-	    <!-- enable Hibernate to use its proxy model -->
-	    <dependency>
-		   <groupId>org.javassist</groupId>
-		   <artifactId>javassist</artifactId>
-		   <version>3.18.2-GA</version>
+
+		<!-- enable Hibernate to use its proxy model -->
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.18.2-GA</version>
 		</dependency>
-	    
-	    <dependency>
-	        <groupId>javax.persistence</groupId>
-	        <artifactId>persistence-api</artifactId>
-	        <version>1.0</version>
-	    </dependency>
+
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
 		<dependency>
-            <groupId>commons-dbcp</groupId>
-            <artifactId>commons-dbcp</artifactId>
-            <version>1.4</version>
-        </dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+		</dependency>
 
+		<!-- Test Unitarios -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.10.19</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+		</dependency>
 	</dependencies>
 </project>
