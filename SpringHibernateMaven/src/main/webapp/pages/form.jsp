@@ -11,7 +11,7 @@
 	<title>Formulario de alta</title>
 	
 	<!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -21,16 +21,14 @@
     <![endif]-->	
 </head>
 <body>
-	<center>
-
+	<div style="margin: auto; text-align: center;">
 		<div style="color: olive; font-size: 30px">
 			Formulario de alta
 		</div>
 
 		<c:url var="userRegistration" value="saveUser.html" />
-		<form:form id="registerForm" modelAttribute="employee" method="post"
-			action="register">
-			<table width="400px" height="150px">
+		<form:form id="registerForm" modelAttribute="employee" method="post" action="register">
+			<table style="width: 400px; height: 150px; margin: auto">
 				<tr>
 					<td><form:label path="firstName">Nombre</form:label></td>
 					<td><form:input path="firstName" /></td>
@@ -49,15 +47,17 @@
 				</tr>
 				<tr>
 					<td colspan="2" >
-						<input type="submit" value="Registrar" />
-						<input type="reset" value="Vaciar" />
+						<div class="btn-group" role="group" aria-label="MyLabel">
+					    	<input type="submit" value="Registrar" class="btn btn-default" />
+					    	<input type="reset" value="Vaciar" class="btn btn-default" />
+					    </div>
 					</td>
 				</tr>
 			</table>
 		</form:form>
 
 		<a href="list">Pulsa aquí para ver la lista completa de contactos</a>
-	</center>
+	</div>
 	
 	<script src="<c:url value="/resources/js/jquery-2.1.3.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
