@@ -20,7 +20,7 @@
     <![endif]-->	
 </head>
 <body>
-	<center>
+	<div style="margin: auto">
 
 		<div style="color: olive; font-size: 30px">
 			Edición
@@ -28,7 +28,7 @@
 
 		<c:url var="userRegistration" value="saveUser.html" />
 		<form:form id="editForm" modelAttribute="employee" method="post" action="update">
-			<table width="400px" height="150px">
+			<table style="width:400px; height:150px; margin: auto">
 				<tr>
 					<td><form:label path="firstName">Nombre</form:label></td>
 					<td><form:input path="firstName" value="${employeeObject.firstName}" /></td>
@@ -53,7 +53,7 @@
 				</tr>
 			</table>
 		</form:form>
-	</center>
+	</div>
 	
 	<script src="<c:url value="/resources/js/jquery-2.1.3.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
