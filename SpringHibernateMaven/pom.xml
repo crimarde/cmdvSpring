@@ -19,9 +19,10 @@
 		<log4j.version>1.2.17</log4j.version>
 		<c3po.version>3.6.3.Final</c3po.version>
 
-		<jackson.databind-version>2.5.3</jackson.databind-version>
+		<jackson.databind-version>2.6.3</jackson.databind-version>
 		<mysql.version>5.1.32</mysql.version>
 		<context.path>SpringHibernateMaven</context.path>
+		<h2.version>1.4.190</h2.version>
 	</properties>
 
 	<developers>
@@ -157,11 +158,21 @@
 			<version>1.2</version>
 		</dependency>
 
+		<!-- MySQL -->
+		<!-- Lo cambio por un H2 en memoria -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>${mysql.version}</version> -->
+<!-- 		</dependency> -->
+
+		<!-- H2 -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>

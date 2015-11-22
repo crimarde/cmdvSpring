@@ -20,12 +20,29 @@
         http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
  
  	<!-- Definición del datasource -->
+	
+	<!-- MySQL sustituido por un H2 en memoria -->
+<!-- 	<bean id="dataSource" -->
+<!-- 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+<!-- 		<property name="driverClassName" value="${database.driver}" /> -->
+<!-- 		<property name="url" value="${database.url}" /> -->
+<!-- 		<property name="username" value="${database.user}" /> -->
+<!-- 		<property name="password" value="${database.password}" /> -->
+<!-- 	</bean> -->
+	
 	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${database.driver}" />
-		<property name="url" value="${database.url}" />
-		<property name="username" value="${database.user}" />
-		<property name="password" value="${database.password}" />
+          class="org.h2.jdbcx.JdbcDataSource">
+        <property name="URL" value="jdbc:h2:~/h2-testdb"/>
+        <property name="user" value="sa"/>
+        <property name="password" value=""/>
+    </bean>
+    
+    <!-- Run H2 web server within application that will access the same in-memory database -->
+	<bean id="h2Server" class="org.h2.tools.Server" factory-method="createTcpServer" init-method="start" destroy-method="stop" depends-on="h2WebServer">
+    	<constructor-arg value="-tcp,-tcpAllowOthers,-tcpPort,9092"/>
+	</bean>
+	<bean id="h2WebServer" class="org.h2.tools.Server" factory-method="createWebServer" init-method="start" destroy-method="stop">
+    	<constructor-arg value="-web,-webAllowOthers,-webPort,8082"/>
 	</bean>
      
 </beans>
