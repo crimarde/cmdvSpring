@@ -12,6 +12,15 @@ public class EmployeeDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public EmployeeDTO(EmployeeDTOBuilder builder) {
+		this.id = builder.getId();
+		this.firstName = builder.getFirstName();
+		this.lastName = builder.getLastName();
+		this.email = builder.getEmail();
+		this.phone = builder.getPhone();
+	}
+
+	
 	public EmployeeDTO(String firstName, String lastName, String email,
 			String phone) {
 		super();
