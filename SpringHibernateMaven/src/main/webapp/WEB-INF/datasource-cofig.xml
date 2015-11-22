@@ -32,9 +32,9 @@
 	
 	<bean id="dataSource"
           class="org.h2.jdbcx.JdbcDataSource">
-        <property name="URL" value="jdbc:h2:~/h2-testdb"/>
-        <property name="user" value="sa"/>
-        <property name="password" value=""/>
+        <property name="URL" value="${h2URL}"/>
+        <property name="user" value="${h2User}"/>
+        <property name="password" value="${h2Pass}"/>
     </bean>
     
     <!-- Run H2 web server within application that will access the same in-memory database -->

@@ -11,3 +11,5 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `phone` varchar(45) DEFAULT NULL,  
   PRIMARY KEY (`id`)  
 ) ENGINE=InnoDB AUTO_INCREMENT=1
+
+INSERT INTO employee (id, first_name) VALUES (10000,'Cristobal_demo');
