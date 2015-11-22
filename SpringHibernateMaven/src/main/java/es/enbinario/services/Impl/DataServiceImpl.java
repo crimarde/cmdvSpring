@@ -1,5 +1,6 @@
 package es.enbinario.services.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.enbinario.dao.DataDAO;
+import es.enbinario.helpers.EmployeeTransformerHelp;
 import es.enbinario.model.Employee;
+import es.enbinario.negocio.EmployeeDTO;
 import es.enbinario.services.DataService;
 
 @Service
@@ -19,6 +22,9 @@ public class DataServiceImpl implements DataService {
 	@Qualifier("dataDAOImpl")
 	DataDAO dataDao;
 
+	@Autowired
+	private EmployeeTransformerHelp transformer;
+	
 	@Override
 	@Transactional(readOnly=false)
 	public long insertRow(Employee employee) {
@@ -26,8 +32,14 @@ public class DataServiceImpl implements DataService {
 	}
 
 	@Override
-	public List<Employee> getList() {
-		return dataDao.getList();
+	public List<EmployeeDTO> getList() {
+		List<Employee> employeeList = new ArrayList<>();
+		List<EmployeeDTO> employeeDtoList = new ArrayList<>();
+		
+		employeeList = dataDao.getList();
+		employeeDtoList.addAll(transformer.EntityToDtoList(employeeList));
+		
+		return employeeDtoList;
 	}
 
 	@Override

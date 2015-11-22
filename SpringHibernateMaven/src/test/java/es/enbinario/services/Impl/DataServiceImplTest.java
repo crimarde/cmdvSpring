@@ -1,11 +1,10 @@
 package es.enbinario.services.Impl;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.hamcrest.CoreMatchers;
-import org.hamcrest.core.IsNot;
-import org.hibernate.hql.internal.ast.tree.IsNullLogicOperatorNode;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

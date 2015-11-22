@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import es.enbinario.model.Employee;
+import es.enbinario.negocio.EmployeeDTO;
 import es.enbinario.services.DataService;
 
 @Controller
@@ -56,7 +57,7 @@ public class DataController {
 	
 	@RequestMapping("list")
 	public ModelAndView getList() {
-		List<Employee> employeeList = dataService.getList();
+		List<EmployeeDTO> employeeList = dataService.getList();
 		return new ModelAndView("list","employeeList",employeeList);
 	}
 	
