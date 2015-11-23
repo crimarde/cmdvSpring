@@ -10,12 +10,12 @@ public interface DataService {
 
 	public List<EmployeeDTO> getList();
 
-	public Employee getRowById(long id);
+	public EmployeeDTO getRowById(long id);
 
-	public void updateRow(Employee employee);
+	public void updateRow(EmployeeDTO employee);
 
 	public long deleteRow(long id);
 	
-	public boolean checkDuplicateInsert(Employee emp);
+	public boolean checkDuplicateInsert(EmployeeDTO emp);
 
 }

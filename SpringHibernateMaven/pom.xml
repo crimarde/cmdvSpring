@@ -13,6 +13,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+		<!-- Dev  -->
+		<cmdv>Cristóbal Martínez del Vals</cmdv>
+		<cmdv.email>crimarde5@gmail.com</cmdv.email>
+		<cmdv.organizacion>IES Camp de Morvedre</cmdv.organizacion>
+		<cmdv.organizacion.url>http://www.iscamp.com</cmdv.organizacion.url>
+		<cmdv.role>Java developer</cmdv.role>
+
+		<!-- Version -->
 		<spring.version>4.1.6.RELEASE</spring.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
 		<jdk.version>1.7</jdk.version>
@@ -27,10 +35,10 @@
 
 	<developers>
 		<developer>
-			<id>Cristóbal Martínez del Vals</id>
-			<email>crimarde5@gmail.com</email>
-			<organization>IES Camp de Morvedre</organization>
-			<organizationUrl>http://www.iscamp.com</organizationUrl>
+			<id>${cmdv}</id>
+			<email>${cmdv.email}</email>
+			<organization>${cmdv.organizacion}</organization>
+			<organizationUrl>${cmdv.organizacion.url}</organizationUrl>
 			<roles>
 				<role>Java Developer</role>
 			</roles>

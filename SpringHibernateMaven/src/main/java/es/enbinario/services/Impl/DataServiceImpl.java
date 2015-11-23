@@ -43,14 +43,14 @@ public class DataServiceImpl implements DataService {
 	}
 
 	@Override
-	public Employee getRowById(long id) {
-		return dataDao.getRowById(id);
+	public EmployeeDTO getRowById(long id) {
+		return  transformer.entityToDto(dataDao.getRowById(id));
 	}
 
 	@Override
 	@Transactional(readOnly=false)
-	public void updateRow(Employee employee) {
-		dataDao.updateRow(employee);
+	public void updateRow(EmployeeDTO employeeDTO) {
+		dataDao.updateRow(transformer.dtoToEntity(employeeDTO));
 	}
 
 	@Override
@@ -60,9 +60,9 @@ public class DataServiceImpl implements DataService {
 	}
 	
 	@Override
-	public boolean checkDuplicateInsert(Employee emp) {
+	public boolean checkDuplicateInsert(EmployeeDTO empDTO) {
 		// true si hay un duplicado
-		return (dataDao.checkDuplicateInsert(emp) != null) ? true : false ;
+		return (dataDao.checkDuplicateInsert(transformer.dtoToEntity(empDTO)) != null) ? true : false ;
 	}
 
 }

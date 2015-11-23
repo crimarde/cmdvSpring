@@ -77,18 +77,18 @@ public class DataController {
 	 * 3. ModelMap -> Es un map en el que spring almacena variables, automáticamente se lo hace llegar a la vista con los valores cargados
 	 * 	El modelMap es una altenativa al ModelAndView (hacen exactmente lo mismo, es sólo cuestión de nomenclatura)
 	 */
-	public String editUser(@RequestParam long id, @ModelAttribute Employee employee, ModelMap model) {
-		Employee employeeObject = dataService.getRowById(id);
-		Employee employeeObject2 = dataService.getRowById(((Employee)model.get("employee")).getId());
-		Employee employeeObject3 = dataService.getRowById(employee.getId());
+	public String editUser(@RequestParam long id, @ModelAttribute EmployeeDTO employeeDTO, ModelMap model) {
+		EmployeeDTO employeeObject = dataService.getRowById(id);
+		EmployeeDTO employeeObject2 = dataService.getRowById(((EmployeeDTO)model.get("employee")).getId());
+		EmployeeDTO employeeObject3 = dataService.getRowById(employeeDTO.getId());
 		model.put("employeeObject", employeeObject);
 		return "edit";
 		//return new ModelAndView("edit","employeeObject",employeeObject);
 	}
 	
 	@RequestMapping("update")
-	public RedirectView updateUser(HttpServletRequest request, @ModelAttribute Employee employee) {
-		dataService.updateRow(employee);
+	public RedirectView updateUser(HttpServletRequest request, @ModelAttribute EmployeeDTO employeeDTO) {
+		dataService.updateRow(employeeDTO);
 		
 		RedirectView redirectView = new RedirectView();
 		//redirectView.setUrl(request.getContextPath() + "/list");
@@ -102,7 +102,7 @@ public class DataController {
 	@RequestMapping("check")
 	public @ResponseBody boolean checkDuplicateInsert(@RequestParam String firstName ,@RequestParam String lastName, @RequestParam String email, @RequestParam String phone){
 //	public @ResponseBody boolean checkDuplicateInsert(@ModelAttribute Employee employee){
-		return dataService.checkDuplicateInsert(new Employee(firstName, lastName, email, phone));
+		return dataService.checkDuplicateInsert(new EmployeeDTO(firstName, lastName, email, phone));
 		//return dataService.checkDuplicateInsert(employe);
 		//return true;
 	}
