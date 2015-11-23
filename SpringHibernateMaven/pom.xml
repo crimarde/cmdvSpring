@@ -12,6 +12,7 @@
 		<!-- Generic properties -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<pom.artifactId>DAMFinalCMDV</pom.artifactId>
 
 		<!-- Dev  -->
 		<cmdv>Cristóbal Martínez del Vals</cmdv>
@@ -31,6 +32,8 @@
 		<mysql.version>5.1.32</mysql.version>
 		<context.path>SpringHibernateMaven</context.path>
 		<h2.version>1.4.190</h2.version>
+		
+		
 	</properties>
 
 	<developers>
@@ -40,7 +43,7 @@
 			<organization>${cmdv.organizacion}</organization>
 			<organizationUrl>${cmdv.organizacion.url}</organizationUrl>
 			<roles>
-				<role>Java Developer</role>
+				<role>${cmdv.role}</role>
 			</roles>
 		</developer>
 	</developers>
