@@ -7,7 +7,7 @@
 	</li>
 
 	<li>
-    <spring:url value="/viewPeson" var="personListUrl" htmlEscape="true" />
+    <spring:url value="/viewList" var="personListUrl" htmlEscape="true" />
 		<a href="${personListUrl}">Person List</a>
 	</li>
 

@@ -116,4 +116,17 @@ public class DataController {
         miMAV.setViewName("index");
         return miMAV;
 	}
+	
+	@RequestMapping("viewList")
+	public ModelAndView pruebaList(HttpServletRequest request) {
+//		ModelAndView miMAV = new ModelAndView();
+//		List<EmployeeDTO> employeeList = dataService.getList();
+//		miMAV.addObject(employeeList);
+//        miMAV.setViewName("personList");
+//        return miMAV;
+		
+		List<EmployeeDTO> employeeList = dataService.getList();
+		return new ModelAndView("personList","employeeList",employeeList);
+	}
+	
 }

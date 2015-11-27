@@ -10,7 +10,7 @@
 	</definition>
 
 	<definition name="personList" extends="DefaultTemplate">
-	    <put-attribute name="body" value="/pages/personList.jsp" />
+	    <put-attribute name="body" value="/pages/list.jsp" />
 	</definition>
 	
 </tiles-definitions>
