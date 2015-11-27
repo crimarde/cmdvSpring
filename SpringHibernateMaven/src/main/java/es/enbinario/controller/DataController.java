@@ -31,7 +31,7 @@ public class DataController {
 	protected final Log logger = LogFactory.getLog(getClass());
 
 	@RequestMapping("form")
-	public ModelAndView getForm(@ModelAttribute Employee employee) {
+	public ModelAndView getForm(@ModelAttribute EmployeeDTO employeeDTO) {
 		logger.info("Hemos entrado en el metodo DataController.getForm. -- Redireccion a la pagina form");
 		
 		/* Creamos un map, le introducimos una serie de valores
@@ -42,9 +42,11 @@ public class DataController {
 		Map<String, Object> miModelo = new HashMap<String, Object>();
 		miModelo.put("variable", "valor");
 		
+		// Objetos que estarán disponibles en la vista
         ModelAndView miMAV = new ModelAndView();
         miMAV.setViewName("form");
         miMAV.addObject(miModelo);
+        miMAV.addObject(employeeDTO);
 
         return miMAV;
 	}
@@ -79,7 +81,7 @@ public class DataController {
 	 */
 	public String editUser(@RequestParam long id, @ModelAttribute EmployeeDTO employeeDTO, ModelMap model) {
 		EmployeeDTO employeeObject = dataService.getRowById(id);
-		EmployeeDTO employeeObject2 = dataService.getRowById(((EmployeeDTO)model.get("employee")).getId());
+		EmployeeDTO employeeObject2 = dataService.getRowById(((EmployeeDTO)model.get("employeeDTO")).getId());
 		EmployeeDTO employeeObject3 = dataService.getRowById(employeeDTO.getId());
 		model.put("employeeObject", employeeObject);
 		return "edit";
@@ -107,4 +109,11 @@ public class DataController {
 		//return true;
 	}
 
+	@RequestMapping("index")
+	public ModelAndView pruebaIndex(HttpServletRequest request) {
+		ModelAndView miMAV = new ModelAndView();
+        //miMAV.setViewName("DefaultTemplate");
+        miMAV.setViewName("index");
+        return miMAV;
+	}
 }

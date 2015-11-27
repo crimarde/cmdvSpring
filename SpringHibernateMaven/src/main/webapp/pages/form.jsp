@@ -27,7 +27,7 @@
 		</div>
 
 		<c:url var="userRegistration" value="saveUser.html" />
-		<form:form id="registerForm" modelAttribute="employee" method="post" action="register">
+		<form:form id="registerForm" modelAttribute="employeeDTO" method="post" action="register">
 			<table style="width: 400px; height: 150px; margin: auto">
 				<tr>
 					<td><form:label path="firstName">Nombre</form:label></td>

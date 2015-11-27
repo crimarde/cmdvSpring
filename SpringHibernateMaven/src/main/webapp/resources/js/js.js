@@ -29,7 +29,9 @@ $(document).ready(function(){
 	$('#registerForm').on('submit',function(event){
 		event.preventDefault();
 		$.get('./check',
-				{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, 
+				//{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, 
+				{$('#registerForm').serialize()}, 
+
 				function (data){
 					if(data){
 						alert("No se puede registar, ya existe");

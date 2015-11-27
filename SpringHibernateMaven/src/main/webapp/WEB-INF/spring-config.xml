@@ -31,7 +31,20 @@
 	
 	<!-- AOP -->
 	<!-- 	<aop:aspectj-autoproxy /> -->
+	
+	<!-- Resuelve las vistas de tiles -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
+	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/layouts/layout.xml</value>
+				<value>/WEB-INF/layouts/body.xml</value>
+			</list>
+		</property>
+	</bean>
 
+	
 	<!-- Resuelve las rutras de los strings que devuelve el controlador -->	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
