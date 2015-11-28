@@ -11,8 +11,13 @@ function eliminar(id){
 	window.location = 'delete?id='+id;
 }
 
-function add(){
+function addEntry(){
+	alert("");
 	window.location = 'form';
+}
+
+function alerta(){
+	alert('Alerta');
 }
 
 function formReset(event) {
@@ -25,13 +30,12 @@ function formReset(event) {
 }
 
 $(document).ready(function(){
+	//{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, 
 	
 	$('#registerForm').on('submit',function(event){
 		event.preventDefault();
 		$.get('./check',
-				//{firstName:$('#firstName').val(), lastName:$('#lastName').val(), email:$('#email').val(), phone:$('#phone').val()}, 
 				{$('#registerForm').serialize()}, 
-
 				function (data){
 					if(data){
 						alert("No se puede registar, ya existe");

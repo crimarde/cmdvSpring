@@ -8,9 +8,29 @@
 	<definition name="index" extends="DefaultTemplate">
 	    <put-attribute name="body" value="/pages/index.jsp" />
 	</definition>
-
-	<definition name="personList" extends="DefaultTemplate">
-	    <put-attribute name="body" value="/pages/list.jsp" />
+	
+	<definition name="personList"  extends="DefaultTemplate">
+		<put-attribute name="body" value="/pages/list.jsp" /> 
+		
+		<put-list-attribute name="jsincludes" inherit="true" >
+			<add-attribute value="/resources/js/list.js"/>
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="form" extends="DefaultTemplate" >
+		<put-attribute name="body" value="/pages/form.jsp" />
+	
+		<put-list-attribute name="jsincludes" inherit="true" >
+			<add-attribute value="/resources/js/alta.js"/>
+		</put-list-attribute> 
+	</definition>
+	
+	<definition name="edit" extends="DefaultTemplate" >
+		<put-attribute name="body" value="/pages/editReg.jsp" />
+	
+		<put-list-attribute name="jsincludes" inherit="true" >
+			<add-attribute value="/resources/js/alta.js"/>
+		</put-list-attribute> 
 	</definition>
 	
 </tiles-definitions>

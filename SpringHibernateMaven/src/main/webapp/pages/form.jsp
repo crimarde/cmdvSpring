@@ -3,24 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Formulario de alta</title>
-	
-	<!-- Bootstrap -->
-    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->	
-</head>
-<body>
 	<div style="margin: auto; text-align: center;">
 		<div style="color: olive; font-size: 30px">
 			Formulario de alta
@@ -58,9 +40,3 @@
 
 		<a href="list">Pulsa aquí para ver la lista completa de contactos</a>
 	</div>
-	
-	<script src="<c:url value="/resources/js/jquery-2.1.3.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/js.js"/>"></script>
-</body>
-</html>

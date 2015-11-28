@@ -60,7 +60,7 @@ public class DataController {
 	@RequestMapping("list")
 	public ModelAndView getList() {
 		List<EmployeeDTO> employeeList = dataService.getList();
-		return new ModelAndView("list","employeeList",employeeList);
+		return new ModelAndView("personList","employeeList",employeeList);
 	}
 	
 	@RequestMapping("delete")
@@ -79,26 +79,26 @@ public class DataController {
 	 * 3. ModelMap -> Es un map en el que spring almacena variables, automáticamente se lo hace llegar a la vista con los valores cargados
 	 * 	El modelMap es una altenativa al ModelAndView (hacen exactmente lo mismo, es sólo cuestión de nomenclatura)
 	 */
-	public String editUser(@RequestParam long id, @ModelAttribute EmployeeDTO employeeDTO, ModelMap model) {
+	public ModelAndView editUser(@RequestParam long id, @ModelAttribute EmployeeDTO employeeDTO, ModelMap model) {
 		EmployeeDTO employeeObject = dataService.getRowById(id);
 		EmployeeDTO employeeObject2 = dataService.getRowById(((EmployeeDTO)model.get("employeeDTO")).getId());
 		EmployeeDTO employeeObject3 = dataService.getRowById(employeeDTO.getId());
-		model.put("employeeObject", employeeObject);
-		return "edit";
-		//return new ModelAndView("edit","employeeObject",employeeObject);
+		model.put("employee", employeeObject);
+		//return "edit";
+		return new ModelAndView("edit","employeeObject",employeeObject);
 	}
 	
 	@RequestMapping("update")
-	public RedirectView updateUser(HttpServletRequest request, @ModelAttribute EmployeeDTO employeeDTO) {
+	public ModelAndView updateUser(HttpServletRequest request, @ModelAttribute EmployeeDTO employeeDTO, ModelMap model) {
 		dataService.updateRow(employeeDTO);
 		
 		RedirectView redirectView = new RedirectView();
 		//redirectView.setUrl(request.getContextPath() + "/list");
-		redirectView.setUrl("list");
-		return redirectView;
+		//redirectView.setUrl("");
+		//return redirectView;  //RedirectView lo que hace es ejecutar el metodo con requestparam "edit"
 		
 		//Alternativa al redirectView
-//		return new ModelAndView("redirect:list");
+		return new ModelAndView("redirect:list");
 	}
 	
 	@RequestMapping("check")
@@ -126,7 +126,17 @@ public class DataController {
 //        return miMAV;
 		
 		List<EmployeeDTO> employeeList = dataService.getList();
-		return new ModelAndView("personList","employeeList",employeeList);
+		
+		ModelAndView miMAV = new ModelAndView();
+        miMAV.setViewName("personList");
+        miMAV.addObject(new EmployeeDTO());
+        miMAV.addObject("employeeList", employeeList);
+
+        return miMAV;
+		
+		
+		//List<EmployeeDTO> employeeList = dataService.getList();
+		//return new ModelAndView("personList","employeeList",employeeList);
 	}
 	
 }
